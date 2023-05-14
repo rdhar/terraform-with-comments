@@ -6,3 +6,8 @@ updates:
       interval: daily
 
   # @TODO Support wildcards: https://github.com/dependabot/dependabot-core/issues/2178
+
+  - package-ecosystem: terraform
+    directory: stacks/cac1-sample
+    schedule:
+      interval: daily
