@@ -4,13 +4,11 @@
 
 ## Contributions
 
-Feel free to contribute to this project in various forms:
+Feel free to contribute to this project; all forms of contribution are very welcome and deeply appreciated in open source software.
 
 - Please [create a pull request](https://github.com/rdhar/terraform-with-comments/pulls) to contribute changes you'd like to see.
 - Please [raise an issue](https://github.com/rdhar/terraform-with-comments/issues) to discuss proposed changes or report unexpected behavior.
 - Please [open a discussion](https://github.com/rdhar/terraform-with-comments/discussions) to share ideas about where you'd like to see this project go.
-
-All forms of contribution are very welcome and deeply appreciated in open source software.
 
 ## License
 
