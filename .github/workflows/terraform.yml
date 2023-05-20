@@ -59,6 +59,7 @@ jobs:
 
     permissions:
       contents: read # Required by actions/checkout.
+      deployments: write # Required by bobheadxi/deployments.
       issues: read # Required by xt0rted/pull-request-comment-branch.
       pull-requests: write # Required by dflook/terraform-*.
       statuses: write # Required by myrotvorets/set-commit-status-action.
@@ -127,6 +128,16 @@ jobs:
           var_file: ${{ matrix.in['var-file'] != '' && format('{0}/{1}', matrix.in['chdir'], matrix.in['var-file']) || '' }}
           workspace: ${{ matrix.in['workspace'] || 'default' }}
 
+      - name: Add deployment status
+        id: add_deployment
+        if: matrix.in['terraform'] == 'apply'
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3 # v1.4.0
+        with:
+          env: ${{ matrix.in['chdir'] }}
+          ref: ${{ steps.get_branch.outputs.head_ref }}
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Terraform apply
         id: terraform_apply
         if: matrix.in['terraform'] == 'apply'
@@ -144,6 +155,17 @@ jobs:
           target: ${{ matrix.in['target'] }}
           var_file: ${{ matrix.in['var-file'] != '' && format('{0}/{1}', matrix.in['chdir'], matrix.in['var-file']) || '' }}
           workspace: ${{ matrix.in['workspace'] || 'default' }}
+
+      - name: Update deployment status
+        if: steps.add_deployment.outcome == 'success'
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3 # v1.4.0
+        with:
+          deployment_id: ${{ steps.add_deployment.outputs.deployment_id }}
+          env: ${{ matrix.in['chdir'] }}
+          ref: ${{ steps.get_branch.outputs.head_ref }}
+          status: ${{ job.status }}
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update commit status
         uses: myrotvorets/set-commit-status-action@7d7fe9a321fbe56a1339449c19422e95a025c65a # v1.1.6
