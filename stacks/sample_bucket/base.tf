@@ -2,8 +2,8 @@ terraform {
   required_version = "~> 1.0"
 
   backend "s3" {
-    bucket         = "terraform-states"
-    dynamodb_table = "terraform-states"
+    bucket         = "terraform_states"
+    dynamodb_table = "terraform_states"
     key            = "sample_bucket.tfstate"
     region         = "us-east-1"
   }
