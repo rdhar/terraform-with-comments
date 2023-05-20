@@ -1,8 +1,12 @@
-# Terraform with Comments
+# Terraform with Comments — Reusable Workflow
 
-## TL;DR
+- [Overview](#overview)
+- [Usage](#usage)
+- [Contributions](#contributions)
+- [License](#license)
 
-This reusable workflow enables you to plan and apply Terraform configurations with pull request (PR) comments for a CLI-like experience on the web. It's powered by GitHub Actions to maximize compatibility and minimize maintenance for DIY deployments.
+> **TL;DR**</br>
+> This reusable workflow enables you to plan and apply Terraform configurations with pull request (PR) comments for a CLI-like experience on the web. It's powered by GitHub Actions to maximize compatibility and minimize maintenance for DIY deployments.
 
 ## Overview
 
@@ -14,7 +18,23 @@ This reusable workflow enables you to plan and apply Terraform configurations wi
   - [Environment protection rules][deployment_rules] mitigate the risk of erroneous changes along with standardized approval requirements.
   - Each PR and associated workflow run holds a complete log of infrastructure changes for ease of collaborative debugging as well as audit compliance.
 
-> Brief outline of the project.
+## Usage
+
+Copy the snippet below to ".github/workflows/terraform.yml" in your repository, amending the contents of "env_vars" as needed by your Terraform configuration.
+
+```yml
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  terraform:
+    uses: rdhar/terraform-with-comments/.github/workflows/terraform.yml@main
+    secrets:
+      env_vars: |
+        AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+```
 
 ## Contributions
 
@@ -31,13 +51,12 @@ All forms of contribution are very welcome and deeply appreciated in promoting o
 - All works herein are my own and shared of my own volition.
 - Copyright 2023 [Rishav Dhar][rishav_dhar] — All wrongs reserved.
 
+[deployment_rules]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules
 [discussion]: https://github.com/rdhar/terraform-with-comments/discussions "Open a discussion."
+[github_actions]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions "Introduction to GitHub Actions."
 [issue]: https://github.com/rdhar/terraform-with-comments/issues "Raise an issue."
 [license]: LICENSE "Apache License 2.0."
 [pull_request]: https://github.com/rdhar/terraform-with-comments/pulls "Create a pull request."
 [rishav_dhar]: https://github.com/rdhar "Rishav Dhar's GitHub profile."
 [stargazer]: https://github.com/rdhar/terraform-with-comments/stargazers "Become a stargazer."
 [terraform]: https://developer.hashicorp.com/terraform/intro "Introduction to Terraform."
-[github_actions]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions "Introduction to GitHub Actions."
-[deployment_rules]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules
-[events_triggering_workflows]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
