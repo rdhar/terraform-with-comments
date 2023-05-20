@@ -61,6 +61,7 @@ jobs:
       contents: read # Required by actions/checkout.
       issues: read # Required by xt0rted/pull-request-comment-branch.
       pull-requests: write # Required by dflook/terraform-*.
+      statuses: write # Required by myrotvorets/set-commit-status-action.
 
     steps:
       - name: Get branch from PR comment
@@ -71,6 +72,13 @@ jobs:
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           ref: ${{ steps.get_branch.outputs.head_ref }}
+
+      - name: Add commit status
+        uses: myrotvorets/set-commit-status-action@7d7fe9a321fbe56a1339449c19422e95a025c65a # v1.1.6
+        with:
+          sha: ${{ steps.get_branch.outputs.head_sha }}
+          status: pending
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set environment variables
         env:
@@ -124,3 +132,11 @@ jobs:
           target: ${{ matrix.in['target'] }}
           var_file: ${{ matrix.in['var-file'] != '' && format('{0}/{1}', matrix.in['chdir'], matrix.in['var-file']) || '' }}
           workspace: ${{ matrix.in['workspace'] || 'default' }}
+
+      - name: Update commit status
+        uses: myrotvorets/set-commit-status-action@7d7fe9a321fbe56a1339449c19422e95a025c65a # v1.1.6
+        if: always()
+        with:
+          sha: ${{ steps.get_branch.outputs.head_sha }}
+          status: ${{ job.status }}
+          token: ${{ secrets.GITHUB_TOKEN }}
