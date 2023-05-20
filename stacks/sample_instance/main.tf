@@ -15,12 +15,12 @@ resource "aws_instance" "sample" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "sample"
+    Name = join("-", [var.PREFIX, "instance"])
   }
 }
 
-# Output the ARN of the sample EC2 instance.
-output "sample_instance_arn" {
-  description = "ARN of the sample EC2 instance."
-  value       = aws_instance.sample.arn
+# Output the ID of the sample EC2 instance.
+output "sample_instance_id" {
+  description = "ID of the sample EC2 instance."
+  value       = aws_instance.sample.id
 }
