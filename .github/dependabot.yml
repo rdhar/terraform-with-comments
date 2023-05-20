@@ -1,13 +1,19 @@
 version: 2
+
 updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
 
-  # @TODO Support wildcards: https://github.com/dependabot/dependabot-core/issues/2178
+  # Support wildcards: https://github.com/dependabot/dependabot-core/issues/2178
 
   - package-ecosystem: terraform
-    directory: stacks/cac1-sample
+    directory: stacks/sample_bucket
+    schedule:
+      interval: daily
+
+  - package-ecosystem: terraform
+    directory: stacks/sample_instance
     schedule:
       interval: daily
