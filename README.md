@@ -68,15 +68,19 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 - [View PR](https://github.com/rdhar/terraform-with-comments/pull/19): Plan, apply and destroy multiple different Terraform configurations in bulk.
 
   ```bash
+  # Plan multiple configurations
   -terraform=plan -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=plan -chdir=stacks/sample_instance
 
+  # Apply multiple configurations
   -terraform=apply -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=apply -chdir=stacks/sample_instance
 
+  # Plan destruction of multiple configurations
   -terraform=plan -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=plan -destroy -chdir=stacks/sample_instance
 
+  # Destroy multiple configurations
   -terraform=apply -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=apply -destroy -chdir=stacks/sample_instance
   ```
@@ -84,8 +88,13 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 - [View PR](https://github.com/rdhar/terraform-with-comments/pull/20): Plan and apply changes to a targeted resource, then destroy it without confirmation.
 
   ```bash
+  # Plan changes to a targeted resource
   -terraform=plan -chdir=stacks/sample_instance -target=aws_instance.sample
+
+  # Apply changes to a targeted resource
   -terraform=apply -chdir=stacks/sample_instance -target=aws_instance.sample
+
+  # Destroy targeted resource without confirmation
   -terraform=apply -destroy -chdir=stacks/sample_instance -target=aws_instance.sample -auto-approve
   ```
 
