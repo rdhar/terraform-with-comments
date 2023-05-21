@@ -2,10 +2,9 @@ terraform {
   required_version = "~> 1.0"
 
   backend "s3" {
-    bucket         = "terraform_states"
-    dynamodb_table = "terraform_states"
-    key            = "sample_instance.tfstate"
-    region         = "us-east-1"
+    bucket = "terraform_states"
+    key    = "sample_instance.tfstate"
+    region = "us-east-1"
   }
 
   required_providers {
@@ -21,8 +20,8 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Stack     = basename(abspath(path.root)) # E.g., "sample_instance"
-      Terraform = terraform.workspace          # E.g., "default"
+      Stack     = basename(abspath(path.root)) # E.g., "sample_instance".
+      Terraform = terraform.workspace          # E.g., "default".
     }
   }
 }
