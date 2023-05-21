@@ -74,7 +74,6 @@ Integrating security in your CI/CD pipeline is critical to practicing DevSecOps.
 
 - PR#: Plan, apply and destroy multiple different Terraform configurations in bulk.
 - PR#: Plan and apply changes to a targeted resource, then destroy it without confirmation.
-- PR#: Attempt to apply changes without required approval.
 
 ## Roadmap
 
