@@ -2,7 +2,7 @@ terraform {
   required_version = "~> 1.0"
 
   backend "s3" {
-    bucket = "terraform_states"
+    bucket = "twc-terraform-states"
     key    = "sample_bucket.tfstate"
     region = "us-east-1"
   }
