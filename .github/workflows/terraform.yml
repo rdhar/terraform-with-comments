@@ -65,6 +65,15 @@ jobs:
       statuses: write # Required by myrotvorets/set-commit-status-action.
 
     steps:
+      - name: Set environment variables
+        env:
+          env_vars: ${{ secrets.env_vars }}
+        run: |
+          for i in $env_vars; do
+            echo ::add-mask::${i/*=/};
+            printf '%s\n' $i >> $GITHUB_ENV;
+          done
+
       - name: Get branch from PR comment
         id: get_branch
         uses: xt0rted/pull-request-comment-branch@d97294d304604fa98a2600a6e2f916a84b596dc7 # v2.0.0
@@ -92,15 +101,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
-
-      - name: Set environment variables
-        env:
-          env_vars: ${{ secrets.env_vars }}
-        run: |
-          for i in $env_vars; do
-            echo ::add-mask::${i/*=/};
-            printf '%s\n' $i >> $GITHUB_ENV;
-          done
 
       - name: Terraform workspace
         if: ${{ matrix.in['workspace'] }}
