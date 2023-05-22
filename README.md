@@ -1,5 +1,8 @@
 # Terraform with Comments — Reusable Workflow
 
+> **TL;DR**</br>
+> This reusable workflow enables you to plan and apply changes to Terraform configurations with pull request (PR) comments: for a CLI-like experience on the web. It's powered by GitHub Actions to maximize compatibility and minimize maintenance for DIY deployments.
+
 - [Overview](#overview)
 - [Usage](#usage)
   - [Workflow](#workflow)
@@ -9,9 +12,6 @@
 - [Roadmap](#roadmap)
 - [Contributions](#contributions)
 - [License](#license)
-
-> **TL;DR**</br>
-> This reusable workflow enables you to plan and apply Terraform configurations with pull request (PR) comments for a CLI-like experience on the web. It's powered by GitHub Actions to maximize compatibility and minimize maintenance for DIY deployments.
 
 ## Overview
 
