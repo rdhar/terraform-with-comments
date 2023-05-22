@@ -59,7 +59,7 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 - `parallelism`: Number of concurrent operations to run (e.g., `-parallelism=10`).
 - `chdir`: Path to a directory containing Terraform configuration files (e.g., `-chdir=stacks/sample_instance`).
 - `replace`: List of resource addresses to replace (e.g., `-replace=aws_instance.this,aws_instance.that`).
-- `target`: List of resources to target (e.g., `-target=aws_instance.this,aws_instance.that`).
+- `target`: List of resource addresses to target (e.g., `-target=aws_instance.this,aws_instance.that`).
 - `var-file`: Path to variable file(s) (e.g., `-var-file=stacks/prod.tfvars`).
 - `workspace`: Name of Terraform workspace to select (e.g., `-workspace=prod`).
 
