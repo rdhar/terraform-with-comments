@@ -17,7 +17,7 @@ resource "aws_s3_bucket_versioning" "sample" {
 }
 
 # Output the ID of the S3 bucket.
-output "sample_bucket_id" {
+output "id" {
   description = "ID of the sample S3 bucket."
   value       = aws_s3_bucket.sample.id
 }
