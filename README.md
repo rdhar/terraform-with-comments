@@ -27,7 +27,7 @@
 
 ### Workflow
 
-Copy the following snippet to ".github/workflows/terraform.yml" in your repository, replacing the contents of `env_vars` with environment variables required by your Terraform configuration (e.g., `AWS` credentials or `TF_VAR` variables).
+Copy the following snippet into ".github/workflows/terraform.yml" file in your repository, replacing the contents of `env_vars` with environment variables required by your Terraform configuration (e.g., `AWS` credentials or `TF_VAR` variables).
 
 ```yml
 on:
