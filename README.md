@@ -120,7 +120,7 @@ Integrating security in your CI/CD pipeline is critical to practicing DevSecOps.
 
 ## Contributions
 
-All forms of contribution are very welcome and deeply appreciated in promoting open source software.
+All forms of contribution are very welcome and deeply appreciated in fostering open source software.
 
 - Please [create a PR][pull_request] to contribute changes you'd like to see.
 - Please [raise an issue][issue] to discuss proposed changes or report unexpected behavior.
