@@ -27,7 +27,7 @@
 
 ### Workflow
 
-Copy the following snippet to ".github/workflows/terraform.yml" in your repository, replacing the contents of `env_vars` with environment variables required by your Terraform configuration (e.g., `AWS` credentials or `TF_VAR` variables).
+Copy the following snippet into ".github/workflows/terraform.yml" file in your repository, replacing the contents of `env_vars` with environment variables required by your Terraform configuration (e.g., `AWS` credentials or `TF_VAR` variables).
 
 ```yml
 on:
@@ -59,7 +59,7 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 - `parallelism`: Number of concurrent operations to run (e.g., `-parallelism=10`).
 - `chdir`: Path to a directory containing Terraform configuration files (e.g., `-chdir=stacks/sample_instance`).
 - `replace`: List of resource addresses to replace (e.g., `-replace=aws_instance.this,aws_instance.that`).
-- `target`: List of resources to target (e.g., `-target=aws_instance.this,aws_instance.that`).
+- `target`: List of resource addresses to target (e.g., `-target=aws_instance.this,aws_instance.that`).
 - `var-file`: Path to variable file(s) (e.g., `-var-file=stacks/prod.tfvars`).
 - `workspace`: Name of Terraform workspace to select (e.g., `-workspace=prod`).
 
@@ -71,12 +71,15 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
   # Plan multiple configurations
   -terraform=plan -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=plan -chdir=stacks/sample_instance
+
   # Apply multiple configurations
   -terraform=apply -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=apply -chdir=stacks/sample_instance
+
   # Plan destruction of multiple configurations
   -terraform=plan -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=plan -destroy -chdir=stacks/sample_instance
+
   # Destroy multiple configurations
   -terraform=apply -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
   -terraform=apply -destroy -chdir=stacks/sample_instance
@@ -87,8 +90,10 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
   ```bash
   # Plan changes to a targeted resource
   -terraform=plan -chdir=stacks/sample_instance -target=aws_instance.sample
+
   # Apply changes to a targeted resource
   -terraform=apply -chdir=stacks/sample_instance -target=aws_instance.sample
+
   # Destroy targeted resource without confirmation
   -terraform=apply -destroy -chdir=stacks/sample_instance -target=aws_instance.sample -auto-approve
   ```
@@ -106,16 +111,16 @@ Integrating security in your CI/CD pipeline is critical to practicing DevSecOps.
   - [x] The `secrets.env_vars` input enables you to pass any number of secret key-value pairs into the workflow for use as masked environment variables.
   - [ ] GitHub Actions has no support for passing secrets from a prior job in the caller workflow to a reusable workflow. Tracked in [discussion#13082](https://github.com/orgs/community/discussions/13082), [discussion#17554](https://github.com/orgs/community/discussions/17554) and [discussion#26671](https://github.com/orgs/community/discussions/26671).
     - Workaround: If you need to pass dynamic secrets such as [OIDC][configure_oidc] tokens, feel free to clone and adapt the job/steps of the reusable workflow as required, since modifications are permitted by this project's permissive [license][license].
-- [x] Parse PR comments to interface with Terraform CLI, returning change outputs as bot comments.
+- [x] Parse PR comments as input commands to interface with Terraform CLI, returning outputs as bot comments.
   - [x] Opted for [dflook/terraform-github-actions](https://github.com/dflook/terraform-github-actions) instead of [hashicorp/setup-terraform](https://github.com/hashicorp/setup-terraform) due to improved rendering of Terraform output in comments and preferable handling of state configuration in workflow logs, despite slower overall processing times.
 - [x] Use GitHub's [reusable workflow or composite actions][compare_reusable_workflow_with_composite_actions] for CI/CD of Terraform configuration changes.
-  - [x] Opted for reusable workflow due to more granular control over workflow execution, from managing `concurrency` of queued workflows to running jobs in parallel with `strategy.matrix`.
+  - [x] Opted for reusable workflow due to more granular control over workflow execution: from managing `concurrency` of queued workflows to running jobs in parallel with `strategy.matrix`.
   - [x] Adapted ternary operator-like behavior to enable if-else logic within GitHub Actions expressions. Tracked in [discussion#26738](https://github.com/orgs/community/discussions/26738) and [PR#24357](https://github.com/github/docs/pull/24357).
   - [ ] Unlike `pull_request`, `issue_comment` events can only be [triggered to run on the default branch][events_triggering_workflows], which complicates testing changes to the reusable workflow.
 
 ## Contributions
 
-All forms of contribution are very welcome and deeply appreciated in promoting open source software.
+All forms of contribution are very welcome and deeply appreciated in fostering open source software.
 
 - Please [create a PR][pull_request] to contribute changes you'd like to see.
 - Please [raise an issue][issue] to discuss proposed changes or report unexpected behavior.
