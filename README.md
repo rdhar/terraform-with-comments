@@ -65,7 +65,7 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 
 ### Examples
 
-- [View PR](https://github.com/rdhar/terraform-with-comments/pull/19): Plan, apply and destroy multiple different Terraform configurations in bulk.
+- [View PR](https://github.com/rdhar/terraform-with-comments/pull/22): Plan, apply and destroy multiple different Terraform configurations in bulk.
 
   ```bash
   # Plan multiple configurations
@@ -85,7 +85,7 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
   -terraform=apply -destroy -chdir=stacks/sample_instance
   ```
 
-- [View PR](https://github.com/rdhar/terraform-with-comments/pull/20): Plan and apply changes to a targeted resource, then destroy it without confirmation.
+- [View PR](https://github.com/rdhar/terraform-with-comments/pull/23): Plan and apply changes to a targeted resource, then destroy it without confirmation.
 
   ```bash
   # Plan changes to a targeted resource
