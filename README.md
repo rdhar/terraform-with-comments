@@ -4,8 +4,8 @@
 - [Usage](#usage)
   - [Workflow](#workflow)
   - [Terraform](#terraform)
-  - [Security](#security)
   - [Examples](#examples)
+  - [Security](#security)
 - [Roadmap](#roadmap)
 - [Contributions](#contributions)
 - [License](#license)
@@ -63,18 +63,42 @@ To `terraform apply` these changes, edit/create a PR comment in the format "-ter
 - `var-file`: Path to variable file(s) (e.g., `-var-file=stacks/prod.tfvars`).
 - `workspace`: Name of Terraform workspace to select (e.g., `-workspace=prod`).
 
+### Examples
+
+- [View PR](https://github.com/rdhar/terraform-with-comments/pull/19): Plan, apply and destroy multiple different Terraform configurations in bulk.
+
+  ```bash
+  # Plan multiple configurations
+  -terraform=plan -chdir=stacks/sample_bucket -var-file=prod.tfvars
+  -terraform=plan -chdir=stacks/sample_instance
+  # Apply multiple configurations
+  -terraform=apply -chdir=stacks/sample_bucket -var-file=prod.tfvars
+  -terraform=apply -chdir=stacks/sample_instance
+  # Plan destruction of multiple configurations
+  -terraform=plan -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
+  -terraform=plan -destroy -chdir=stacks/sample_instance
+  # Destroy multiple configurations
+  -terraform=apply -destroy -chdir=stacks/sample_bucket -var-file=prod.tfvars
+  -terraform=apply -destroy -chdir=stacks/sample_instance
+  ```
+
+- [View PR](https://github.com/rdhar/terraform-with-comments/pull/20): Plan and apply changes to a targeted resource, then destroy it without confirmation.
+
+  ```bash
+  # Plan changes to a targeted resource
+  -terraform=plan -chdir=stacks/sample_instance -target=aws_instance.sample
+  # Apply changes to a targeted resource
+  -terraform=apply -chdir=stacks/sample_instance -target=aws_instance.sample
+  # Destroy targeted resource without confirmation
+  -terraform=apply -destroy -chdir=stacks/sample_instance -target=aws_instance.sample -auto-approve
+  ```
+
 ### Security
 
 Integrating security in your CI/CD pipeline is critical to practicing DevSecOps. This reusable workflow is designed to be secure by default, and it should be complemented with your own review to ensure it meets your (organization's) security requirements.
 
 - All associated GitHub Actions used in this workflow are [pinned to a specific SHA][securing_github_actions] to prevent supply chain attacks from third-party upstream dependencies.
 - Restrict changes to certain environments with [deployment protection rules][deployment_rules] so that approval is required from authorized users/teams before changes to the infrastructure can be applied.
-
-### Examples
-
-- PR#: Plan, apply and destroy multiple different Terraform configurations in bulk.
-- PR#: Plan and apply changes to a targeted resource, then destroy it without confirmation.
-- PR#: Attempt to apply changes without required approval.
 
 ## Roadmap
 
