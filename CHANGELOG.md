@@ -3,6 +3,21 @@
 - All notable changes to this project will be documented in this file.
 - The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [`v1.2.0`](https://github.com/rdhar/terraform-with-comments/compare/v1.1.0...v1.2.0) — 2023-05-23
+
+### Added
+
+- Support for GitHub Codespaces dev container, which offers a tailored Terraform development environment, complete with tools and runtimes to lower the barrier to entry for contributors.
+
+### Commits
+
+- build(deps): bump myrotvorets/set-commit-status-action from 1.1.6 to 1.1.7 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/31
+- build: support terraform dev container codespace by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/32
+
+## New Contributors
+
+- @dependabot made their first contribution in https://github.com/rdhar/terraform-with-comments/pull/31
+
 ## [`v1.1.0`](https://github.com/rdhar/terraform-with-comments/compare/v1.0.0...v1.1.0) — 2023-05-22
 
 ### Added
@@ -61,6 +76,6 @@
 - build: add sample bucket and instance templates by @rdhar in [#10](https://github.com/rdhar/terraform-with-comments/pull/10).
 - ci: add initial prototype of reusable workflow and caller by @rdhar in [#11](https://github.com/rdhar/terraform-with-comments/pull/11).
 
-### Contributors
+### New Contributors
 
 - @rdhar made their first contribution in [#1](https://github.com/rdhar/terraform-with-comments/pull/1).
