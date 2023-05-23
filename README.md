@@ -11,6 +11,7 @@
   - It enables you to define resources in human-readable configuration files that can be version controlled and shared for consistent state management.
 - [GitHub Actions][github_actions] is a continuous integration and continuous deployment (CI/CD) platform that enables you to automate your project's pipelines with custom workflows.
   - This repository hosts a reusable workflow that parses PR comments and runs Terraform commands in a remote environment.
+  - Also supports [GitHub Codespaces][github_codespaces] dev container, which offers a tailored Terraform development environment, complete with tools and runtimes to lower the barrier to entry for contributors.
 - Best suited for DevOps and Platform engineers who want to empower their teams to self-service Terraform without the overhead of self-hosting runners, containers or VMs like [Atlantis][atlantis].
   - [Environment deployment protection rules][deployment_rules] mitigate the risk of erroneous changes along with standardized approval requirements.
   - Each PR and associated workflow run holds a complete log of infrastructure changes for ease of collaborative debugging as well as audit compliance.
@@ -140,6 +141,7 @@ All forms of contribution are very welcome and deeply appreciated for fostering 
 [discussion]: https://github.com/rdhar/terraform-with-comments/discussions "Open a discussion."
 [events_triggering_workflows]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows "Events that trigger workflows."
 [github_actions]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions "Introduction to GitHub Actions."
+[github_codespaces]: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
 [issue]: https://github.com/rdhar/terraform-with-comments/issues "Raise an issue."
 [license]: LICENSE "Apache License 2.0."
 [pull_request]: https://github.com/rdhar/terraform-with-comments/pulls "Create a pull request."
