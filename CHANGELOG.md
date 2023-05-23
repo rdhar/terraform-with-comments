@@ -11,12 +11,12 @@
 
 ### Commits
 
-- build(deps): bump myrotvorets/set-commit-status-action from 1.1.6 to 1.1.7 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/31
-- build: support terraform dev container codespace by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/32
+- build(deps): bump myrotvorets/set-commit-status-action from 1.1.6 to 1.1.7 by @dependabot in [#31](https://github.com/rdhar/terraform-with-comments/pull/31).
+- build: support terraform dev container codespace by @rdhar in [#32](https://github.com/rdhar/terraform-with-comments/pull/32).
 
-## New Contributors
+### New Contributors
 
-- @dependabot made their first contribution in https://github.com/rdhar/terraform-with-comments/pull/31
+- @dependabot made their first contribution in [#31](https://github.com/rdhar/terraform-with-comments/pull/31).
 
 ## [`v1.1.0`](https://github.com/rdhar/terraform-with-comments/compare/v1.0.0...v1.1.0) — 2023-05-22
 
