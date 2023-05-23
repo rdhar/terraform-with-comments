@@ -54,9 +54,9 @@ The following arguments are supported simultaneously, in any order:
 
 - `auto-approve`: Flag to skip confirmation before applying the plan (e.g., `-auto-approve`).
 - `backend-config`: Path to backend configuration file(s) (e.g., `-backend-config=stacks/backend.tfvars`).
+- `chdir`: Path to a directory containing Terraform configuration files (e.g., `-chdir=stacks/sample_instance`).
 - `destroy`: Flag to destroy resources managed by Terraform (e.g., `-destroy`).
 - `parallelism`: Number of concurrent operations to run (e.g., `-parallelism=10`).
-- `chdir`: Path to a directory containing Terraform configuration files (e.g., `-chdir=stacks/sample_instance`).
 - `replace`: List of resource addresses to replace (e.g., `-replace=aws_instance.this,aws_instance.that`).
 - `target`: List of resource addresses to target (e.g., `-target=aws_instance.this,aws_instance.that`).
 - `var-file`: Path to variable file(s) (e.g., `-var-file=stacks/prod.tfvars`).
