@@ -1,4 +1,4 @@
-# template_instance
+# sample_instance
 
 > Deploy a sample instance to AWS with this template stack.
 
