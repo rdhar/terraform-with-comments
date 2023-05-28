@@ -15,8 +15,8 @@
 ## Inputs
 
 - PREFIX
+- aws_region
 - instance_type
-- region
 
 ## Outputs
 
