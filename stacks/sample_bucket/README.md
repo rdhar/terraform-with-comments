@@ -1,4 +1,4 @@
-# template_bucket
+# sample_bucket
 
 > Deploy a sample bucket to AWS with this template stack.
 
