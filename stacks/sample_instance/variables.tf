@@ -3,12 +3,12 @@ variable "PREFIX" {
   type        = string
 }
 
-variable "instance_type" {
-  description = "https://aws.amazon.com/ec2/instance-types."
+variable "aws_region" {
+  description = "https://aws.amazon.com/about-aws/global-infrastructure."
   type        = string
 }
 
-variable "region" {
-  description = "https://aws.amazon.com/about-aws/global-infrastructure."
+variable "instance_type" {
+  description = "https://aws.amazon.com/ec2/instance-types."
   type        = string
 }

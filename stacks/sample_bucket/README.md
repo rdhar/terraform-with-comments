@@ -15,8 +15,8 @@
 ## Inputs
 
 - PREFIX
+- aws_region
 - bucket_versioning
-- region
 
 ## Outputs
 

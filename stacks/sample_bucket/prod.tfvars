@@ -1,3 +1,2 @@
+aws_region        = "us-east-1"
 bucket_versioning = "Enabled"
-
-region = "us-east-1"
