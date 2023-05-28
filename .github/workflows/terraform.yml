@@ -7,10 +7,6 @@ on: # https://docs.github.com/en/actions/using-workflows/events-that-trigger-wor
         description: Environment variables passed into this workflow.
         required: false
 
-concurrency: # Allow queued workflow on this PR to interrupt previous runs.
-  group: ${{ github.workflow }}@${{ github.event.issue.number }}
-  cancel-in-progress: true
-
 jobs:
   parse: # Parse terraform command(s) from comment to run in subsequent job.
     if: startsWith(github.event.comment.body, '-terraform=')
@@ -56,6 +52,9 @@ jobs:
       fail-fast: false
       matrix:
         in: ${{ fromJSON(needs.parse.outputs.commands) }}
+
+    concurrency: # Queued workflow will be pending and any previously pending ones will be canceled.
+      group: ${{ github.workflow_ref }}@${{ matrix.in['chdir'] }}@${{ github.event.issue.number }}
 
     permissions:
       contents: read # Required by actions/checkout.
@@ -157,7 +156,7 @@ jobs:
           workspace: ${{ matrix.in['workspace'] || 'default' }}
 
       - name: Update deployment status
-        if: steps.add_deployment.outcome == 'success'
+        if: steps.add_deployment.outcome == 'success' || failure()
         uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3 # v1.4.0
         with:
           deployment_id: ${{ steps.add_deployment.outputs.deployment_id }}
