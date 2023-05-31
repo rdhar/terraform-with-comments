@@ -111,6 +111,17 @@ jobs:
           path: ${{ matrix.in['chdir'] }}
           workspace: ${{ matrix.in['workspace'] }}
 
+      - name: Terraform force-unlock
+        if: matrix.in['terraform'] == 'force-unlock'
+        uses: dflook/terraform-unlock-state@678b17aab874c140544a9fde3f58e2da1f380417 # v1.34.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          backend_config_file: ${{ matrix.in['backend-config'] != '' && format('{0}/{1}', matrix.in['chdir'], matrix.in['backend-config']) || '' }}
+          lock_id: ${{ matrix.in['lock-id'] }}
+          path: ${{ matrix.in['chdir'] }}
+          workspace: ${{ matrix.in['workspace'] || 'default' }}
+
       - name: Terraform plan
         if: matrix.in['terraform'] == 'plan'
         uses: dflook/terraform-plan@f0212c2a3ea84e7f8a11cdc4187e8ebf3c426c0e # v1.34.0
