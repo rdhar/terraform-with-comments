@@ -54,7 +54,7 @@ jobs:
         in: ${{ fromJSON(needs.parse.outputs.commands) }}
 
     concurrency: # Queued workflow will be pending and any previously pending ones will be canceled.
-      group: ${{ github.workflow_ref }}@${{ matrix.in['chdir'] }}@${{ github.event.issue.number }}
+      group: ${{ github.workflow_ref }}@${{ matrix.in['chdir'] }}-${{ matrix.in['workspace'] }}@${{ github.event.issue.number }}
 
     permissions:
       contents: read # Required by actions/checkout.
@@ -167,7 +167,7 @@ jobs:
           workspace: ${{ matrix.in['workspace'] || 'default' }}
 
       - name: Update deployment status
-        if: steps.add_deployment.outcome == 'success' || failure()
+        if: steps.terraform_apply.outcome != 'skipped'
         uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3 # v1.4.0
         with:
           deployment_id: ${{ steps.add_deployment.outputs.deployment_id }}
