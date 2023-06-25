@@ -3,6 +3,35 @@
 - All notable changes to this project will be documented in this file.
 - The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [`v1.3.0`](https://github.com/rdhar/terraform-with-comments/compare/v1.2.0...v1.3.0) — 2023-06-25
+
+## What's Changed
+
+### Added
+
+- Terraform force-unlock command to unlock a Terraform state lock.
+
+### Changed
+
+- Take workspace parameter into account for synchronous concurrency.
+
+### Commits
+
+- docs: reordering terraform arguments by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/35
+- build(deps): update hashicorp/aws requirement from ~> 4.0 to ~> 5.0 in /stacks/sample_bucket by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/37
+- build(deps): update hashicorp/aws requirement from ~> 4.0 to ~> 5.0 in /stacks/sample_instance by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/36
+- build: rename variables by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/38
+- docs: naming by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/39
+- ci: fix concurrency by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/40
+- ci: terraform force-unlock by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/41
+- ci: add workspace input to concurrency by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/42
+- build(deps): bump actions/checkout from 3.5.2 to 3.5.3 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/43
+- build(deps): bump dflook/terraform-unlock-state from 1.34.0 to 1.35.0 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/44
+- build(deps): bump dflook/terraform-new-workspace from 1.34.0 to 1.35.0 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/47
+- build(deps): bump dflook/terraform-plan from 1.34.0 to 1.35.0 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/45
+- build(deps): bump dflook/terraform-apply from 1.34.0 to 1.35.0 by @dependabot in https://github.com/rdhar/terraform-with-comments/pull/46
+- docs: archive notice by @rdhar in https://github.com/rdhar/terraform-with-comments/pull/48
+
 ## [`v1.2.0`](https://github.com/rdhar/terraform-with-comments/compare/v1.1.0...v1.2.0) — 2023-05-23
 
 ### Added
