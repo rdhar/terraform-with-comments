@@ -1,3 +1,6 @@
+> **Warning**
+> ### This project has been archived and succeeded by [devsectop/tf-via-pr](https://github.com/devsectop/tf-via-pr).
+
 # Terraform with Comments — Reusable Workflow
 
 [Overview](#overview) · [Usage](#usage) [[Workflow](#workflow) · [Terraform](#terraform) · [Examples](#examples)] · [Security](#security) · [Roadmap](#roadmap) · [Contributions](#contributions) · [License](#license)
