@@ -53,7 +53,7 @@ jobs:
       matrix:
         in: ${{ fromJSON(needs.parse.outputs.commands) }}
 
-    concurrency: # Queued workflow will be pending and any previously pending ones will be canceled.
+    concurrency: # Queued workflow will be pending and any previously pending ones will be cancelled.
       group: ${{ github.workflow_ref }}@${{ matrix.in['chdir'] }}-${{ matrix.in['workspace'] }}@${{ github.event.issue.number }}
 
     permissions:
